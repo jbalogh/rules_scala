@@ -49,7 +49,7 @@ def _thrift_library_impl(ctx):
   # We move the files and touch them so that the output file is a purely deterministic
   # product of the _content_ of the inputs
   cmd = """
-  set -ex
+  set -x
 rm -rf {out}_tmp
 mkdir -p {out}_tmp
 {jar} cMf {out}_tmp/tmp.jar $@
