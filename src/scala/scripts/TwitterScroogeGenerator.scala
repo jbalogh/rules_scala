@@ -58,6 +58,9 @@ class ScroogeGenerator extends Processor {
     val onlyTransitiveThriftSrcJars = getIdx(2)
     // remote jars are jars that come from another repo, really no different from transitive
     val remoteSrcJars = getIdx(3)
+    
+    if (args.get(2) == "external/com_stripe_pay_server_api_thrift/jar/pay-server-api-thrift-0.0.1-SNAPSHOT.jar")
+      throw Exception("noooooo")
 
     // These are remote JARs where we want to export the generated class files
     // built from the Thrifts in the JAR. This is the remote JAR version o
