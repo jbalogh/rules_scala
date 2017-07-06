@@ -159,14 +159,17 @@ public class TeeInputStream extends java.io.FilterInputStream {
       
       
     
-    
+    int counter = 0;
 
     while (true) {
       try {
         
         
         
-        WorkRequest request = WorkRequest.parseDelimitedFrom(new TeeInputStream(System.in, new java.io.FileWriter("/tmp/waaaaat", true)));
+        WorkRequest request = WorkRequest.parseDelimitedFrom(
+            new TeeInputStream(System.in, 
+                               new java.io.FileOutputStream(new java.io.File("/tmp/waaaaat-" + (counter++)))
+                               ));
         if (request == null) {
           break;
         }
