@@ -156,6 +156,8 @@ public class TeeInputStream extends java.io.FilterInputStream {
   private void runPersistentWorker() throws IOException {
     PrintStream originalStdOut = System.out;
     PrintStream originalStdErr = System.err;
+      
+      
     
     
 
@@ -164,7 +166,7 @@ public class TeeInputStream extends java.io.FilterInputStream {
         
         
         
-        WorkRequest request = WorkRequest.parseDelimitedFrom(new TeeInputStream(System.in, originalStdErr));
+        WorkRequest request = WorkRequest.parseDelimitedFrom(new TeeInputStream(System.in, new FileOutputStream(new File("/tmp/waaaaat"))));
         if (request == null) {
           break;
         }
