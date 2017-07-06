@@ -63,6 +63,12 @@ class ScalacProcessor implements Processor {
       String[] scalaSources = collectSrcJarSources(ops.files, scalaJarFiles, javaJarFiles);
 
       String[] javaSources = GenericWorker.appendToString(ops.javaFiles, javaJarFiles);
+      
+      System.out.println("SOURCEJARS:" + ops.sourceJars.toString());
+      System.out.println("SCALASOURCES:" + scalaSources.toString());
+      System.out.println("JAVASOURCES:" + javaSources.toString());
+      
+      
       if (scalaSources.length == 0 && javaSources.length == 0) {
         throw new RuntimeException("Must have input files from either source jars or local files.");
       }
