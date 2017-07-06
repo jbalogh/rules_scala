@@ -49,14 +49,15 @@ def _thrift_library_impl(ctx):
   # We move the files and touch them so that the output file is a purely deterministic
   # product of the _content_ of the inputs
   cmd = """
+  set -ex
 rm -rf {out}_tmp
 mkdir -p {out}_tmp
 {jar} cMf {out}_tmp/tmp.jar $@
-echo {jar} cMf {out}_tmp/tmp.jar $@
+echo "{jar} cMf {out}_tmp/tmp.jar $@"
 unzip -q -o {out}_tmp/tmp.jar -d {out}_tmp 2>/dev/null
 rm -rf {out}_tmp/tmp.jar
 find {out}_tmp -exec touch -t 198001010000 {{}} \;
-""" + jarcmd + ("echo %s" % jarcmd) + """
+""" + jarcmd + ('echo "%s"' % jarcmd) + """
 rm -rf {out}_tmp"""
 
   cmd = cmd.format(out=ctx.outputs.libarchive.path,
