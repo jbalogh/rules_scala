@@ -117,7 +117,7 @@ class Compiler {
     val allPathsList = allPaths.toList
 
     println("#### PATHS ####")
-    allPathsList.forEach { path => println(path) }
+    allPathsList.foreach { path => println(path) }
     println("##### PATHS ####")
     
     // Here we only should only pass Thrift files to the compiler, other files
