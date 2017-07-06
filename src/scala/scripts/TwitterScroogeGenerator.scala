@@ -9,6 +9,8 @@ import scala.collection.mutable.Buffer
 import io.bazel.rulesscala.worker.{ GenericWorker, Processor }
 import scala.io.Source
 
+import scala.collection.JavaConverters._
+
 /**
  * This is our entry point to producing a scala target
  * this can act as one of Bazel's persistant workers.
@@ -43,6 +45,10 @@ class ScroogeGenerator extends Processor {
     def getIdx(i: Int): List[String] =
       if (args.size > i) args.get(i).split(':').toList.filter(_.nonEmpty)
       else Nil
+    
+    println("%%%% ARGS %%%%")
+    args.asScala.foreach { arg => println(arg) }
+    println("%%%% ARGS %%%%")
 
     val jarOutput = args.get(0)
     // These are the files whose output we want
@@ -57,6 +63,8 @@ class ScroogeGenerator extends Processor {
     // built from the Thrifts in the JAR. This is the remote JAR version o
     // immediateThriftSrcJars.
     val remoteSelfThriftSources = getIdx(4)
+    
+    println(s"REMOTE: ${remoteSelfThriftSources}")
 
     val tmp = Paths.get(Option(System.getenv("TMPDIR")).getOrElse("/tmp"))
     val scroogeOutput = Files.createTempDirectory(tmp, "scrooge")
