@@ -52,9 +52,11 @@ def _thrift_library_impl(ctx):
   set -x
 rm -rf {out}_tmp
 mkdir -p {out}_tmp
-{jar} cMf {out}_tmp/tmp.jar $@
-unzip -q -o {out}_tmp/tmp.jar -d {out}_tmp 2>/dev/null
-rm -rf {out}_tmp/tmp.jar
+if [[ "$#" -ne 0 ]]; then
+  {jar} cMf {out}_tmp/tmp.jar $@
+  unzip -q -o {out}_tmp/tmp.jar -d {out}_tmp 2>/dev/null
+  rm -rf {out}_tmp/tmp.jar
+fi
 find {out}_tmp -exec touch -t 198001010000 {{}} \;
 """ + jarcmd + """
 rm -rf {out}_tmp"""
