@@ -23,6 +23,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.FilteredOutputStream;
 
+
+public class GenericWorker {
+    
 public class TeeInputStream extends FilteredOutputStream {
 
     /**
@@ -139,7 +142,6 @@ public class TeeInputStream extends FilteredOutputStream {
 
 }
 
-public class GenericWorker {
   final protected Processor processor;
 
   public GenericWorker(Processor p) {
