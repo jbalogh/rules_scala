@@ -60,7 +60,7 @@ class ScroogeGenerator extends Processor {
     val remoteSrcJars = getIdx(3)
     
     if (args.get(2) == "external/com_stripe_pay_server_api_thrift/jar/pay-server-api-thrift-0.0.1-SNAPSHOT.jar")
-      throw Exception("noooooo")
+      throw new NullPointerException
 
     // These are remote JARs where we want to export the generated class files
     // built from the Thrifts in the JAR. This is the remote JAR version o
