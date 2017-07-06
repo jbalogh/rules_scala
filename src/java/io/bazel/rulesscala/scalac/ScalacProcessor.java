@@ -17,6 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -64,9 +65,9 @@ class ScalacProcessor implements Processor {
 
       String[] javaSources = GenericWorker.appendToString(ops.javaFiles, javaJarFiles);
       
-      System.out.println("SOURCEJARS:" + ops.sourceJars.toString());
-      System.out.println("SCALASOURCES:" + scalaSources.toString());
-      System.out.println("JAVASOURCES:" + javaSources.toString());
+      System.out.println("SOURCEJARS:" + Arrays.toString(ops.sourceJars));
+      System.out.println("SCALASOURCES:" + Arrays.toString(scalaSources));
+      System.out.println("JAVASOURCES:" + Arrays.toString(javaSources));
       
       
       if (scalaSources.length == 0 && javaSources.length == 0) {
