@@ -49,6 +49,9 @@ class ScalacProcessor implements Processor {
     Path tmpPath = null;
     try {
       CompileOptions ops = new CompileOptions(args);
+      
+      System.out.println("ARGS: " + args.toString());
+      System.out.println("OPS: " + ops.toString());
 
       Path outputPath = FileSystems.getDefault().getPath(ops.outputName);
       tmpPath = Files.createTempDirectory(outputPath.getParent(), "tmp");
