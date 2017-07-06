@@ -52,10 +52,11 @@ def _thrift_library_impl(ctx):
 rm -rf {out}_tmp
 mkdir -p {out}_tmp
 {jar} cMf {out}_tmp/tmp.jar $@
+echo {jar} cMf {out}_tmp/tmp.jar $@
 unzip -q -o {out}_tmp/tmp.jar -d {out}_tmp 2>/dev/null
 rm -rf {out}_tmp/tmp.jar
 find {out}_tmp -exec touch -t 198001010000 {{}} \;
-""" + jarcmd + """
+""" + jarcmd + ("echo %s" % jarcmd) + """
 rm -rf {out}_tmp"""
 
   cmd = cmd.format(out=ctx.outputs.libarchive.path,
