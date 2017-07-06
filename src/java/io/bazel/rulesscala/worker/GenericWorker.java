@@ -21,12 +21,11 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.FilteredOutputStream;
 
 
 public class GenericWorker {
     
-public class TeeInputStream extends FilteredOutputStream {
+public class TeeInputStream extends java.io.FilterInputStream {
 
     /**
      * The output stream that will receive a copy of all bytes read from the
