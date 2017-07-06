@@ -114,6 +114,10 @@ class Compiler {
 
     val rootImporter = FocusedZipImporter.forPaths(None, allJars)
 
+    println("#### PATHS ####")
+    allPaths.forEach { path => println(path) }
+    println("##### PATHS ####")
+    
     // Here we only should only pass Thrift files to the compiler, other files
     // (e.g. manifest files) are not accepted.
     allPaths.filter(_.endsWith(".thrift")).foreach { inputFullPath =>
