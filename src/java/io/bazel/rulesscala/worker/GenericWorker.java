@@ -166,7 +166,7 @@ public class TeeInputStream extends java.io.FilterInputStream {
         
         
         
-        WorkRequest request = WorkRequest.parseDelimitedFrom(new TeeInputStream(System.in, new new java.io.FileWriter("/tmp/waaaaat", true)));
+        WorkRequest request = WorkRequest.parseDelimitedFrom(new TeeInputStream(System.in, new java.io.FileWriter("/tmp/waaaaat", true)));
         if (request == null) {
           break;
         }
