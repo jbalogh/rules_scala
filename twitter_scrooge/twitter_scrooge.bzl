@@ -234,6 +234,12 @@ scrooge_scala_srcjar = rule(
 )
 
 def scrooge_scala_library(name, deps=[], remote_jars=[], jvm_flags=[], visibility=None):
+    print '##### SCRROOOOGE ######'
+    print name
+    print deps
+    print remote_jars
+    print jvm_flags
+    print '##### SCRROOOOGE ######'
     srcjar = name + '_srcjar'
     scrooge_scala_srcjar(
         name = srcjar,
